@@ -83,6 +83,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
         dialog.setUp(R.layout.dialog)
         dialog.findViewById<TextView>(R.id.dialogTitle).text = title
         dialog.findViewById<TextView>(R.id.dialogDescription).text = description
+        dialog.show()
     }
 
 
