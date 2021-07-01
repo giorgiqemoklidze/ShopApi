@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ShopApi</string>
+    <string name="email_adress">Email address</string>
+    <string name="sasa">sasa</string>
+    <string name="password">password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgor_pasword">Forgor pasword?</string>
+    <string name="continu">Continue</string>
+    <string name="error">Something went wrong</string>
+    <string name="missing_fields">Fill all fields</string>
 </resources>
