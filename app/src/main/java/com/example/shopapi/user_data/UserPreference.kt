@@ -11,6 +11,7 @@ class UserPreference @Inject constructor(@ApplicationContext context: Context) {
 
     companion object {
         const val SASSION = "HAS_SESSION"
+        const val TOKEN = "TOKEN"
     }
 
     private val sharedPreference: SharedPreferences by lazy {
@@ -23,5 +24,11 @@ class UserPreference @Inject constructor(@ApplicationContext context: Context) {
     }
 
     fun hasSession() = sharedPreference.getBoolean(SASSION, false)
+
+    fun saveToken(token : String){
+        sharedPreference.edit().putString(TOKEN, token).apply()
+    }
+
+    fun token() = sharedPreference.getString(SASSION, "")
 
 }

@@ -9,4 +9,8 @@
     <string name="continu">Continue</string>
     <string name="error">Something went wrong</string>
     <string name="missing_fields">Fill all fields</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="already_a_member_log_in">Already a member? Log in</string>
+    <string name="sign_up">sign Up</string>
 </resources>

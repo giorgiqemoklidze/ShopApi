@@ -1,8 +1,9 @@
 package com.example.shopapi.di
 
-import com.example.shopapi.network.ApiService
-import com.example.shopapi.repository.LoginRepository
-import com.example.shopapi.repository.LoginRepositoryImplement
+import com.example.shopapi.network.AuthService
+import com.example.shopapi.repository.AuthRepository
+import com.example.shopapi.repository.AuthRepositoryImplement
+import com.example.shopapi.user_data.UserPreference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class ApiModule {
 
-    companion object{
+    companion object {
 
         const val BASE_URL = "https://ktorhighsteaks.herokuapp.com/"
 
@@ -24,14 +25,17 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun login() =  Retrofit.Builder()
+    fun login() = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ApiService::class.java)
+        .create(AuthService::class.java)
 
     @Provides
     @Singleton
-    fun provideLoginRepostory(apiService: ApiService):LoginRepository = LoginRepositoryImplement(apiService)
+    fun provideLoginRepostory(
+        authService: AuthService,
+        userPreference: UserPreference
+    ): AuthRepository = AuthRepositoryImplement(authService, userPreference)
 
 }

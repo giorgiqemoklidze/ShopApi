@@ -1,4 +1,4 @@
-package com.example.shopapi.login
+package com.example.shopapi.auth.logIn
 
 
 import android.app.Dialog
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.example.shopapi.BaseFragment
 import com.example.shopapi.R
 import com.example.shopapi.databinding.LoginFragmentBinding
@@ -36,11 +37,14 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
 
         val email = binding!!.email.text.toString().trim()
         val password = binding!!.password.text.toString().trim()
+        val rememberMe = binding!!.rememberMe.isChecked
 
         if (email.isNotBlank() && password.isNotBlank()) {
 
             if (email.isEmail()) {
-                viewModel.logIn(email, password)
+                viewModel.logIn(email, password, rememberMe)
+            } else {
+                showErrorDialog(getString(R.string.error), "email is incorrect")
             }
 
         } else {
@@ -66,7 +70,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
             when (it.status) {
 
                 Resource.Status.Succsess -> {
-                    viewModel.saveSession(binding!!.rememberMe.isChecked)
+                    findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
                 }
                 Resource.Status.Error -> {
                     it.message?.let { it1 -> showErrorDialog(getString(R.string.error), it1) }

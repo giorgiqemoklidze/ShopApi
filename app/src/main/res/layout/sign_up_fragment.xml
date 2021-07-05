@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.logIn.LoginFragment"
+    tools:context=".auth.signUp.SignUpFragment"
     android:scrollbars="none"
     android:overScrollMode="never">
 
@@ -53,6 +53,27 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtIputFullName"
+            style="@style/AppTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:hint="@string/full_name"
+            app:hintTextColor="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInputEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:maxLines="1"
+                android:textColorHint="@color/main"
+                android:textSize="17sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtIputPassword"
             style="@style/AppTextField"
             android:layout_width="match_parent"
@@ -62,7 +83,7 @@
             app:hintTextColor="@color/main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtInputEmail">
+            app:layout_constraintTop_toBottomOf="@id/txtIputFullName">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
@@ -74,15 +95,41 @@
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/rememberMe"
-            android:layout_width="wrap_content"
-            android:layout_height="18dp"
-            android:layout_marginTop="51dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtIputRepeatPassword"
+            style="@style/AppTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:hint="@string/repeat_password"
+            app:hintTextColor="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtIputPassword"
-            android:text="@string/remember_me"
-            android:buttonTint="@color/main"/>
+            app:layout_constraintTop_toBottomOf="@id/txtIputPassword">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/repeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColorHint="@color/main"
+                android:textSize="17sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUpBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtIputRepeatPassword"
+            android:layout_marginTop="49dp"
+            android:background="@drawable/button"
+            android:text="@string/sign_up"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logInBtn"
@@ -90,21 +137,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rememberMe"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/button"
-            android:text="@string/sign_in"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/forgotBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logInBtn"
+            app:layout_constraintTop_toBottomOf="@id/signUpBtn"
             android:layout_marginTop="35dp"
-            android:text="@string/forgor_pasword"
+            android:text="@string/already_a_member_log_in"
             android:textSize="14sp"
             android:background="@color/white"
             />
@@ -112,4 +147,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
-
