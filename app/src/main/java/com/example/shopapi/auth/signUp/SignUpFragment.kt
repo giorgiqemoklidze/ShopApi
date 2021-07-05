@@ -49,15 +49,20 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
         val email = binding!!.email.text.toString().trim()
         val password = binding!!.password.text.toString().trim()
         val fullname = binding!!.fullName.text.toString().trim()
+        val repeatPassword = binding!!.repeatPassword.text.toString().trim()
 
 
-        if (email.isNotBlank() && password.isNotBlank()) {
+        if (email.isNotBlank() && password.isNotBlank() && fullname.isNotBlank()) {
 
-            if (email.isEmail()) {
-                viewModel.signUp(email, fullname, password)
-            } else {
+            if (password !=repeatPassword){
+                showErrorDialog(getString(R.string.error),"password Desnt Match")
+            }
+
+            if (!email.isEmail()) {
                 showErrorDialog(getString(R.string.error), "email is incorrect")
             }
+
+            viewModel.signUp(email, fullname, password)
 
         } else {
             showErrorDialog(getString(R.string.error), getString(R.string.missing_fields))
