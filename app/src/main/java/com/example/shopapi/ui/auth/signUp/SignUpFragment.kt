@@ -28,6 +28,7 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
     private fun init() {
 
         listeners()
+        observes()
 
     }
 
@@ -36,7 +37,7 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
 
         binding!!.signUpBtn.setOnClickListener {
             signUp()
-            observes()
+            
         }
 
         binding!!.logInBtn.setOnClickListener {
