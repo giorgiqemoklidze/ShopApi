@@ -25,7 +25,9 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
 
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
+        
         setListeners()
+        observes()
 
     }
 
@@ -33,7 +35,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
     private fun setListeners() {
         binding!!.logInBtn.setOnClickListener {
             logIn()
-            observes()
+            
         }
         binding!!.forgetBtn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
