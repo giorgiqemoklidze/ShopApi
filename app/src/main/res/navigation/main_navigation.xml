@@ -21,7 +21,11 @@
         android:id="@+id/signUpFragment"
         android:name="com.example.shopapi.ui.auth.signUp.SignUpFragment"
         android:label="sign_up_fragment"
-        tools:layout="@layout/sign_up_fragment" />
+        tools:layout="@layout/sign_up_fragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.shopapi.ui.splash.SplashFragment"

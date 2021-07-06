@@ -14,7 +14,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding,HomeViewModel>(HomeFragmen
 
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
-        TODO("Not yet implemented")
+
     }
 
 

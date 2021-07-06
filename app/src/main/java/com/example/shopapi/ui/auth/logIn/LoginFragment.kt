@@ -26,12 +26,15 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
         setListeners()
-        observes()
+
     }
 
 
     private fun setListeners() {
-        binding!!.logInBtn.setOnClickListener { logIn() }
+        binding!!.logInBtn.setOnClickListener {
+            logIn()
+            observes()
+        }
         binding!!.forgetBtn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
