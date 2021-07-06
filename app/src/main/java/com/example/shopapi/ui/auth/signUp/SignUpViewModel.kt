@@ -1,4 +1,4 @@
-package com.example.shopapi.auth.signUp
+package com.example.shopapi.ui.auth.signUp
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,12 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.shopapi.model.SignUp
 import com.example.shopapi.network.Resource
 import com.example.shopapi.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class SignUpViewModel @Inject constructor(val authRepository: AuthRepository) : ViewModel() {
+@HiltViewModel
+class SignUpViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
 
     private var signUpLiveData = MutableLiveData<Resource<SignUp>>()
 

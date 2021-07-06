@@ -1,4 +1,4 @@
-package com.example.shopapi.auth.logIn
+package com.example.shopapi.ui.auth.logIn
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.shopapi.model.Login
 import com.example.shopapi.network.Resource
 import com.example.shopapi.repository.AuthRepository
-import com.example.shopapi.user_data.UserPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

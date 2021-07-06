@@ -13,4 +13,5 @@
     <string name="full_name">Full Name</string>
     <string name="already_a_member_log_in">Already a member? Log in</string>
     <string name="sign_up">sign Up</string>
+    <string name="register">register</string>
 </resources>

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.logIn.LoginFragment"
+    tools:context=".ui.auth.logIn.LoginFragment"
     android:scrollbars="none"
     android:overScrollMode="never">
 
@@ -22,6 +22,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/logo"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +46,6 @@
                 android:maxLines="1"
                 android:paddingStart="0dp"
                 android:paddingEnd="0dp"
-                android:text="@string/sasa"
                 android:textColorHint="@color/main"
                 android:textSize="17sp" />
 
@@ -97,14 +97,14 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/forgotBtn"
+            android:id="@+id/forgetBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logInBtn"
             android:layout_marginTop="35dp"
-            android:text="@string/forgor_pasword"
+            android:text="@string/register"
             android:textSize="14sp"
             android:background="@color/white"
             />
