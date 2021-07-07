@@ -49,7 +49,7 @@ class SplashFragment : BaseFragment<SplashFragmentBinding,SplashViewModel>(Splas
     private fun navigate(){
 
         if(viewModel.isLoggined()){
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_ContainerFragment)
         }else{
             findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }

@@ -14,4 +14,8 @@
     <string name="already_a_member_log_in">Already a member? Log in</string>
     <string name="sign_up">sign Up</string>
     <string name="register">register</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

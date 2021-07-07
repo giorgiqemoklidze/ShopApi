@@ -32,8 +32,8 @@ class AuthRepositoryImplement @Inject constructor(
 
 
             } else {
-                val errorModel = Gson().fromJson(response.errorBody()!!.string(),Error::class.java)
-                Resource.error(errorModel.error)
+//                val errorModel = Gson().fromJson(response.errorBody()!!.string(),Error::class.java)
+                Resource.error(response.errorBody()?.string())
 
             }
         } catch (e: Exception) {

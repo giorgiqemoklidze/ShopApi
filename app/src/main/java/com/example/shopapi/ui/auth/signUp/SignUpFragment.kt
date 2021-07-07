@@ -28,7 +28,7 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
     private fun init() {
 
         listeners()
-
+        observes()
     }
 
 
@@ -36,7 +36,6 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
 
         binding!!.signUpBtn.setOnClickListener {
             signUp()
-            observes()
         }
 
         binding!!.logInBtn.setOnClickListener {
@@ -83,7 +82,7 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding, SignUpViewModel>(
             when (it.status) {
 
                 Resource.Status.Succsess -> {
-                    findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_signUpFragment_to_ContainerFragment)
                 }
                 Resource.Status.Error -> {
                     showErrorDialog(getString(R.string.error), it.message!!)

@@ -13,15 +13,15 @@ interface AuthService {
     @FormUrlEncoded
     suspend fun logIn(
         @Field("email") email: String,
-        @Field("Password") password: String
+        @Field("password") password: String
     ): Response<Login>
 
     @POST("register")
     @FormUrlEncoded
     suspend fun signUp(
         @Field("email") email: String,
-        @Field("Password") password: String,
-        @Field("full_name") fullName: String
+        @Field("full_name") fullName: String,
+        @Field("password") password: String
     ): Response<SignUp>
 
 }

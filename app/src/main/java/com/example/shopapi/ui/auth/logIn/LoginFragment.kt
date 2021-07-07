@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.example.shopapi.BaseFragment
@@ -25,7 +26,9 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
 
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
+
         setListeners()
+        observes()
 
     }
 
@@ -33,9 +36,9 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
     private fun setListeners() {
         binding!!.logInBtn.setOnClickListener {
             logIn()
-            observes()
         }
         binding!!.forgetBtn.setOnClickListener {
+
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
 
@@ -78,7 +81,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
             when (it.status) {
 
                 Resource.Status.Succsess -> {
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_ContainerFragment)
                 }
                 Resource.Status.Error -> {
                     it.message?.let { it1 -> showErrorDialog(getString(R.string.error), it1) }
