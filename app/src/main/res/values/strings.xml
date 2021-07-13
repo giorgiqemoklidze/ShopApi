@@ -18,4 +18,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="my_profile">My Profile</string>
+    <string name="sign_out">Sign out</string>
+
+
 </resources>

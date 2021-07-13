@@ -48,4 +48,9 @@
         android:name="com.example.shopapi.ui.containerFragment.ContainerFragment"
         android:label="home_fragment"
         tools:layout="@layout/container_fragment" />
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/main_navigation"
+        app:popUpToInclusive="true" />
 </navigation>
