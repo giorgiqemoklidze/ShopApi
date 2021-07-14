@@ -30,50 +30,47 @@ class ApiModule {
         const val BASE_URL = "https://ktorhighsteaks.herokuapp.com/"
 
     }
-    private fun interceptorClient(userPreferences: UserPreference): OkHttpClient {
+
+    private fun okHttpClient(userPreference: UserPreference): OkHttpClient {
+
         val builder = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
             chain.request().url
+
             val request = chain.request().newBuilder()
 
-            val token = userPreferences.token()
+            val response = chain.proceed(request.build())
+
+            val token = userPreference.token()
 
             if (!token.isNullOrBlank()) {
                 request.addHeader("Authorization", "Bearer $token")
-
             }
 
-            val response = chain.proceed(request.build())
             response
         })
 
-        if (BuildConfig.BUILD_TYPE == "debug") {
-            builder.addInterceptor(
-                HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                }
-            )
+        if (BuildConfig.DEBUG) {
+            builder.addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
         }
+
         return builder.build()
     }
 
 
     @Provides
     @Singleton
-    fun login(@ApplicationContext context: Context,
-              userPreference: UserPreference) = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-//        .client(interceptorClient(userPreference))
-        .build()
-        .create(AuthService::class.java)
-
-    @Provides
-    @Singleton
-    fun GetPostService(
+    fun login(
         @ApplicationContext context: Context,
-    ): PostService =
-        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
-            .build().create(PostService::class.java)
+        userPreference: UserPreference
+    ) =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+//        .client(interceptorClient(userPreference))
+            .build()
+            .create(AuthService::class.java)
 
     @Provides
     @Singleton
@@ -83,10 +80,17 @@ class ApiModule {
     ): AuthRepository = AuthRepositoryImplement(authService, userPreference)
 
 
+    @Provides
+    @Singleton
+    fun getPostService(): PostService =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
+            .build().create(PostService::class.java)
+
 
     @Provides
     @Singleton
-    fun GetPostRepo(postsServie: PostService): GetPostsRepository =
-        GetPostsRepositoryImpl(postsServie)
+    fun getPostRepo(postsService: PostService): GetPostsRepository =
+        GetPostsRepositoryImpl(postsService)
 
 }

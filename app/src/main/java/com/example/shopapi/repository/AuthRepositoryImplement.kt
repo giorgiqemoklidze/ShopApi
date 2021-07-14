@@ -1,12 +1,11 @@
 package com.example.shopapi.repository
 
-import com.example.shopapi.model.Error
+
 import com.example.shopapi.model.Login
 import com.example.shopapi.model.SignUp
 import com.example.shopapi.network.AuthService
 import com.example.shopapi.network.Resource
 import com.example.shopapi.user_data.UserPreference
-import com.google.gson.Gson
 import javax.inject.Inject
 
 class AuthRepositoryImplement @Inject constructor(
