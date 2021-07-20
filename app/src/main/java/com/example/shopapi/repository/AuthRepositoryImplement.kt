@@ -27,6 +27,7 @@ class AuthRepositoryImplement @Inject constructor(
 
                 userPreference.saveSession(rememberMe)
                 userPreference.saveToken(body.token)
+                userPreference.saveUserId(response.body()!!.userId)
                 Resource.succsess(body)
 
 

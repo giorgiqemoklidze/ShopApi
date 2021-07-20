@@ -6,6 +6,8 @@ import com.example.shopapi.network.AuthService
 import com.example.shopapi.network.PostService
 import com.example.shopapi.repository.AuthRepository
 import com.example.shopapi.repository.AuthRepositoryImplement
+import com.example.shopapi.repository.completeProfileRepository.CompleteProfileRepo
+import com.example.shopapi.repository.completeProfileRepository.CompleteProfileRepoImplement
 import com.example.shopapi.repository.posts.GetPostsRepository
 import com.example.shopapi.repository.posts.GetPostsRepositoryImpl
 import com.example.shopapi.user_data.UserPreference
@@ -92,5 +94,11 @@ class ApiModule {
     @Singleton
     fun getPostRepo(postsService: PostService): GetPostsRepository =
         GetPostsRepositoryImpl(postsService)
+
+
+    @Provides
+    @Singleton
+    fun addCompleteProfileRepo(apiservice: AuthService): CompleteProfileRepo =
+        CompleteProfileRepoImplement(apiservice)
 
 }

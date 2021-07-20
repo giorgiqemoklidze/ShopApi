@@ -12,4 +12,12 @@
         android:layout_height="match_parent"
         android:id="@+id/postsRecycler"/>
 
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_add__new_post"
+        android:id="@+id/btnAddPost"
+        />
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

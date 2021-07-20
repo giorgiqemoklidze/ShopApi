@@ -90,7 +90,37 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>(
             }
 
         })
+
+
+        viewModel._completeProfielStatusLiveData.observe(viewLifecycleOwner, {
+            when (it.status) {
+
+                Resource.Status.Succsess -> {
+
+                    if (it.data!!.profileCompleted) {
+                        findNavController().navigate(R.id.action_loginFragment_to_ContainerFragment)
+                    }else{
+                        findNavController().navigate(R.id.action_loginFragment_to_completeProfileFragment)
+
+                    }
+
+
+                    viewModel.completeProfile()
+
+                }
+                Resource.Status.Error -> {
+
+                    it.message?.let { it1 -> showErrorDialog(getString(R.string.error), it1) }
+                }
+
+
+            }
+        })
     }
+
+
+
+
 
 
     fun showErrorDialog(title: String, description: String) {

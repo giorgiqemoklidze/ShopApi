@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_ContainerFragment"
             app:destination="@id/ContainerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_completeProfileFragment"
+            app:destination="@id/completeProfileFragment" />
 
     </fragment>
     <fragment
@@ -53,4 +56,12 @@
         app:destination="@id/loginFragment"
         app:popUpTo="@id/main_navigation"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/completeProfileFragment"
+        android:name="com.example.shopapi.ui.complete_profile.CompleteProfileFragment"
+        android:label="CompleteProfileFragment" >
+        <action
+            android:id="@+id/action_completeProfileFragment_to_ContainerFragment"
+            app:destination="@id/ContainerFragment" />
+    </fragment>
 </navigation>
